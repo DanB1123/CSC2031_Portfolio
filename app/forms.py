@@ -13,7 +13,6 @@ def ensure_not_reserved(form, field):
 
 def check_username_chars(form, field):
     username = (field.data or '').strip()
-    # Letters and underscores only
     if not re.fullmatch(r'[A-Za-z_]+', username):
         raise ValidationError('Username may contain only letters and underscores (no digits or spaces).')
 

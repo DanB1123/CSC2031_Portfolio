@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, flash, request
-from app.forms import RegistrationForm  # ⬅️ import your new form
+from app.forms import RegistrationForm
 
 main = Blueprint('main', __name__)
 
@@ -9,14 +9,12 @@ def home():
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm()  # create an instance of your form
+    form = RegistrationForm()
 
-    # Check if the form has been submitted and is valid
+
     if form.validate_on_submit():
         username = form.username.data
         email = form.email.data
         flash(f'Registration successful for {username}!', 'success')
         return render_template('register.html', form=form, name=username)
-
-    # If not submitted or invalid, render the page again with errors
     return render_template('register.html', form=form)
