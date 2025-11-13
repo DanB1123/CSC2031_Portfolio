@@ -1,4 +1,3 @@
-# app/forms.py
 import re
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, TextAreaField, SubmitField
@@ -14,7 +13,7 @@ def ensure_not_reserved(form, field):
 
 def check_username_chars(form, field):
     username = (field.data or '').strip()
-    # Letters and underscores only, length enforced separately
+    # Letters and underscores only
     if not re.fullmatch(r'[A-Za-z_]+', username):
         raise ValidationError('Username may contain only letters and underscores (no digits or spaces).')
 
@@ -49,7 +48,7 @@ class RegistrationForm(FlaskForm):
         ]
     )
 
-    # Part B will replace/extend this with the full policy
+    # Part B will replace
     password = PasswordField(
         'Password',
         validators=[
