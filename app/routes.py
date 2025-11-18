@@ -1,20 +1,38 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask import Blueprint, render_template, request
 from app.forms import RegistrationForm
+import bleach
 
 main = Blueprint('main', __name__)
 
+ALLOWED_TAGS = ['b', 'i', 'u', 'em', 'strong', 'a', 'p', 'ul', 'ol', 'li']
+ALLOWED_ATTRIBUTES = {'a': ['href', 'title']}
+
+
 @main.route('/', methods=['GET'])
 def home():
-    return redirect(url_for('main.register'))
+    return render_template('register.html', form=RegistrationForm())
+
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
+
     form = RegistrationForm()
 
-
     if form.validate_on_submit():
-        username = form.username.data
-        email = form.email.data
-        flash(f'Registration successful for {username}!', 'success')
-        return render_template('register.html', form=form, name=username)
+        raw_bio = form.bio.data or ""
+
+        sanitized_bio = bleach.clean(
+            raw_bio,
+            tags=ALLOWED_TAGS,
+            attributes=ALLOWED_ATTRIBUTES,
+            strip=True
+        )
+
+        return render_template(
+            'register.html',
+            form=form,
+            name=form.username.data,
+            bio=sanitized_bio
+        )
+
     return render_template('register.html', form=form)

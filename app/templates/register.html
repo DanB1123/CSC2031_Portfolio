@@ -2,7 +2,7 @@
 {% block content %}
 <h2>Register</h2>
 
-<form method="POST" novalidate>
+<form method="POST" action="{{ url_for('main.register') }}" novalidate>
     {{ form.hidden_tag() }}
 
     <p>
@@ -51,4 +51,10 @@
 {% if name %}
     <p>Hello {{ name }}! Your registration was successful.</p>
 {% endif %}
+
+{% if bio %}
+<p><strong>Your Bio:</strong></p>
+<div>{{ bio | safe }}</div>
+{% endif %}
+
 {% endblock %}
