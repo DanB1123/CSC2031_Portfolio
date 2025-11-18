@@ -1,7 +1,36 @@
-import re
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, TextAreaField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+import re
+
+def password_policy_check(form, field):
+    password = field.data
+    username = form.username.data
+    email = form.email.data
+
+    if len(password) < 12:
+        raise ValidationError("Password must be at least 12 characters long.")
+    if not re.search(r"[A-Z]", password):
+        raise ValidationError("Password must include at least one uppercase letter.")
+    if not re.search(r"[a-z]", password):
+        raise ValidationError("Password must include at least one lowercase letter.")
+    if not re.search(r"\d", password):
+        raise ValidationError("Password must include at least one number.")
+    if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", password):
+        raise ValidationError("Password must include at least one special character.")
+    if re.search(r"\s", password):
+        raise ValidationError("Password cannot contain spaces or tabs.")
+    if username and username.lower() in password.lower():
+        raise ValidationError("Password cannot contain your username.")
+    if email and email.split('@')[0].lower() in password.lower():
+        raise ValidationError("Password cannot contain your email name part.")
+
+    common_passwords = [
+        'password123', 'admin', '123456', 'qwerty', 'letmein',
+        'welcome', 'iloveyou', 'abc123', 'monkey', 'football'
+    ]
+    if password.lower() in common_passwords:
+        raise ValidationError("Password is too common. Please choose another one.")
 
 RESERVED_USERNAMES = {'admin', 'root', 'superuser'}
 ALLOWED_EMAIL_SUFFIXES = ('.edu', '.ac.uk', '.org')
@@ -47,12 +76,11 @@ class RegistrationForm(FlaskForm):
         ]
     )
 
-    # Part B will replace
     password = PasswordField(
         'Password',
         validators=[
             DataRequired(),
-            Length(min=8, message='Password must be at least 8 characters (placeholder for Part B).')
+            password_policy_check
         ]
     )
 
