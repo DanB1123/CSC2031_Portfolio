@@ -1,0 +1,38 @@
+2025-11-18 18:32:52,947 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 18:32:52,948 [INFO] [33mPress CTRL+C to quit[0m
+2025-11-18 18:32:52,951 [INFO]  * Restarting with stat
+2025-11-18 18:32:53,833 [WARNING]  * Debugger is active!
+2025-11-18 18:32:53,840 [INFO]  * Debugger PIN: 552-062-817
+2025-11-18 18:33:02,958 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 18:33:02,982 [INFO] [33mPress CTRL+C to quit[0m
+2025-11-18 18:33:02,984 [INFO]  * Restarting with stat
+2025-11-18 18:33:03,783 [WARNING]  * Debugger is active!
+2025-11-18 18:33:03,787 [INFO]  * Debugger PIN: 552-062-817
+2025-11-18 18:33:15,081 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 18:33:15,081 [INFO] [33mPress CTRL+C to quit[0m
+2025-11-18 18:33:15,083 [INFO]  * Restarting with stat
+2025-11-18 18:33:15,933 [WARNING]  * Debugger is active!
+2025-11-18 18:33:15,936 [INFO]  * Debugger PIN: 552-062-817
+2025-11-18 18:34:46,719 [INFO] 127.0.0.1 - - [18/Nov/2025 18:34:46] "GET / HTTP/1.1" 200 -
+2025-11-18 18:35:25,898 [INFO] Registration successful: dan from 127.0.0.1
+2025-11-18 18:35:25,900 [INFO] 127.0.0.1 - - [18/Nov/2025 18:35:25] "POST /register HTTP/1.1" 200 -
+2025-11-18 18:39:57,595 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-18 18:39:57,596 [INFO] [33mPress CTRL+C to quit[0m
+2025-11-18 18:39:57,598 [INFO]  * Restarting with stat
+2025-11-18 18:39:58,292 [WARNING]  * Debugger is active!
+2025-11-18 18:39:58,320 [INFO]  * Debugger PIN: 552-062-817
+2025-11-18 18:40:03,025 [INFO] 127.0.0.1 - - [18/Nov/2025 18:40:03] "GET / HTTP/1.1" 200 -
+2025-11-18 18:40:41,907 [INFO] Registration successful: dan from 127.0.0.1
+2025-11-18 18:40:41,909 [INFO] 127.0.0.1 - - [18/Nov/2025 18:40:41] "POST /register HTTP/1.1" 200 -
+2025-11-18 18:40:57,516 [INFO] Registration successful: dan from 127.0.0.1
+2025-11-18 18:40:57,518 [INFO] 127.0.0.1 - - [18/Nov/2025 18:40:57] "POST /register HTTP/1.1" 200 -
+2025-11-18 18:40:57,829 [INFO] 127.0.0.1 - - [18/Nov/2025 18:40:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-18 18:41:11,699 [INFO] Registration successful: dan from 127.0.0.1
+2025-11-18 18:41:11,702 [INFO] 127.0.0.1 - - [18/Nov/2025 18:41:11] "POST /register HTTP/1.1" 200 -
+2025-11-18 18:41:21,061 [INFO] Registration successful: dan from 127.0.0.1
+2025-11-18 18:41:21,064 [INFO] 127.0.0.1 - - [18/Nov/2025 18:41:21] "POST /register HTTP/1.1" 200 -
+2025-11-18 18:41:21,348 [INFO] 127.0.0.1 - - [18/Nov/2025 18:41:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
